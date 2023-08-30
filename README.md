@@ -31,7 +31,7 @@ END
 cq1 calculates the 500ms average of the target metric, and stores the aggregation results as a new time series in the database (we output the result time series in result.csv). 
 cql is executed at 500ms intervals and each execution covers the time range between 2 seconds prior to now() and now(). 
 Notice that aggregations for most time intervals will be computed multiple times, which is four in this implementation.
-Therefore, delayed data points in the input dataset will lead to updates of the periodic aggregated results.
+Therefore, delayed data points in the input dataset could lead to updates of the periodic aggregated results.
 
 ![cq1](https://github.com/LeiRui/dataset_with_updates/assets/33376433/d6af9def-abbb-4f9f-ae29-66e59ea92730)
 
