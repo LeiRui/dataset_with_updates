@@ -23,7 +23,7 @@ Therefore, delayed data points in the input dataset will lead to updates of the 
 ## Result
 - result.csv
 
-Updates are visually displayed in the figure below, which is a scatter plot of the resulting time series in xxx.csv.
+The figure below is a scatter plot of the time series in result.csv.
 If there is no update, the values of points with the same timestamp will be the same, and the color density of each dot in the scatter plot will be the same.
 Otherwise, a more transparent dot in the scatter plot indicates that an update has occurred, which is the case in the figure below.
 ![png](scatter_plot_showing_updates.png)
