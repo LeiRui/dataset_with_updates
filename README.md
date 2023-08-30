@@ -33,6 +33,8 @@ cql is executed at 500ms intervals and each execution covers the time range betw
 Notice that aggregations for most time intervals will be computed multiple times, which is four in this implementation.
 Therefore, delayed data points in the input dataset will lead to updates of the periodic aggregated results.
 
+![cq1](https://github.com/LeiRui/dataset_with_updates/assets/33376433/d6af9def-abbb-4f9f-ae29-66e59ea92730)
+
 
 ## Result
 - result.csv
