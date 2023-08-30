@@ -14,7 +14,7 @@ we conduct a simulated online aggregation analysis over a real-world dataset S-9
 
 Taking d1.xlsx from the dataset S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
 "C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated. 
-In other words, "C-Send-Time" and "C.Server.Pocessing.duration.ns" form the time and value fields of the time series, and "S.Message.received.time.ms" is the time the data point arrived in the database.
+In other words, "C-Send-Time" and "C.Server.Pocessing.duration.ns" form the time and value fields of the input time series, and "S.Message.received.time.ms" is the time the data point arrived in the database.
 
 We simulate a continuous query cq1 as follows.
 ```
