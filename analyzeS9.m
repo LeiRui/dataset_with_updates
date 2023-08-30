@@ -1,6 +1,6 @@
 clear all;close all;clc
 format long g
-filename = 'D:\desktop\d1.xlsx';
+filename = 'd1.xlsx';
 sheet = 1;
 data = xlsread(filename,sheet);
 arrivalTime=data(:,1);
@@ -59,10 +59,10 @@ scatter(res_t,res_v,'MarkerFaceColor','r','MarkerEdgeColor','r',...
     'MarkerFaceAlpha',.2,'MarkerEdgeAlpha',.2)
 xlabel('t')
 ylabel('v')
-%saveas(gcf,'D:\desktop\scatter_plot_showing_updates.png')
+%saveas(gcf,'scatter_plot_showing_updates.png')
 
 M=[res_t,res_v];
-fid = fopen('D:\desktop\result.csv','wt');
+fid = fopen('result.csv','wt');
 fprintf(fid, '%s,%s\n', 'Time','Value');  % header
-dlmwrite('D:\desktop\result.csv',M,'precision',20)
+dlmwrite('result.csv',M,'precision',20)
 fclose(fid);
