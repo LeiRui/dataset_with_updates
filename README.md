@@ -22,7 +22,7 @@ We simulate a continuous query cq1 as follows.
 CREATE CONTINUOUS QUERY cq1
 RESAMPLE RANGE 2s
 BEGIN
-  SELECT AVG(C.Server.Pocessing.duration.ns)
+  SELECT AVG(duration)
   INTO root.sg1.d1(duration_avg)
   FROM root.sg1.d1
   GROUP BY(500ms)
