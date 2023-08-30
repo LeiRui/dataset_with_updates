@@ -33,7 +33,7 @@ The execution interval of cq1 is 500ms, which is the same length as the group by
 
 Notice that aggregations for most time groups will be computed multiple times.
 Therefore, delayed data points in the input dataset could lead to updates of the periodic aggregated results.
-As illustrated in the figure below, the four red lines represent that the average statistics on the time group [t5, t6) are calculated four times.
+As illustrated in the figure below, the four red lines represent that the average aggregation of the time group [t5, t6) are calculated four times.
 If any data point with generation time within [t5, t6) arrives later than t6, the results of the four calculations will not be exactly the same, that is to say, updates will occur.
 
 ![cq1](https://github.com/LeiRui/dataset_with_updates/assets/33376433/d6af9def-abbb-4f9f-ae29-66e59ea92730)
