@@ -12,7 +12,7 @@ we conduct a simulated online aggregation analysis over a real-world dataset S-9
 ## How to implement
 - analyzeS9.m
 
-Taking d1.xlsx from the dataset S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
+Taking d1.xlsx from the dataset S-9 as input, we select "C-Send-Time" and "S.Message.received.time.ms" as the generation time and arrival time of the data points, respectively.
 "C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated. 
 In other words, "C-Send-Time" and "C.Server.Pocessing.duration.ns" form the time and value fields of the input time series, 
 and "S.Message.received.time.ms" is the time the data point arrived in the database.
@@ -31,9 +31,10 @@ END
 cq1 calculates the 500ms average of the target metric, and stores the aggregation results as a new time series in the database (we output the result time series in result.csv). 
 The execution interval of cq1 is 500ms, which is the same length as the group by interval, and each execution covers the time range from 2 seconds before now() to now().
 
-Notice that aggregations for most time intervals will be computed multiple times, which is four in this implementation.
+Notice that aggregations for most time groups will be computed multiple times, which is four in this implementation.
 Therefore, delayed data points in the input dataset could lead to updates of the periodic aggregated results.
-As illustrated in the figure below, the four red lines represent four calculations of the average statistic for the time interval [t5,t6).
+As illustrated in the figure below, the four red lines represent that the average statistics on the time group [t5, t6) are calculated four times.
+If any data point with generation time within [t5, t6) arrives later than t6, the results of the four calculations will not be exactly the same, that is to say, updates will occur.
 
 ![cq1](https://github.com/LeiRui/dataset_with_updates/assets/33376433/d6af9def-abbb-4f9f-ae29-66e59ea92730)
 
