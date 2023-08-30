@@ -36,7 +36,7 @@ Therefore, delayed data points in the input dataset could lead to updates of the
 As illustrated in the figure below, the four red lines represent that the average aggregation of the time group [t5, t6) are calculated four times.
 If any data point with generation time within [t5, t6) arrives later than t6, then the results of the four calculations will not be the same, that is to say, updates will occur.
 
-![cq1](https://github.com/LeiRui/dataset_with_updates/assets/33376433/8864a3a5-9143-48f9-9397-2ec3f1328359)
+![cq1](cq1.png)
 
 
 
@@ -46,4 +46,5 @@ If any data point with generation time within [t5, t6) arrives later than t6, th
 The figure below is a scatter plot of the time series in result.csv.
 If there is no update, the values of points with the same timestamp will be the same, and the color density of each dot in the scatter plot will be the same.
 Otherwise, a more transparent dot in the scatter plot indicates that an update has occurred, which is the case in the figure below.
+
 ![png](scatter_plot_showing_updates.png)
