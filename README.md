@@ -13,12 +13,25 @@ we conduct a similar online aggregation analysis over a real-world dataset S-9 [
 - analyzeS9.m
 
 Taking d1.xlsx from the dataset S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
-"C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated.
+"C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated. 
+In other words, "C-Send-Time" and "C.Server.Pocessing.duration.ns" form the time and value fields of the time series, and "S.Message.received.time.ms" is the time the data point arrived in the database.
 
-We simulate an online aggregation process that calculates the 500ms average of the target metric, and store the aggregation results as a time series in result.csv. 
-The aggregation is executed at 500ms intervals and each execution covers the time range between 2 seconds prior to now() and now(). 
-Notice that with this setting, aggregations for most time intervals will be computed four times.
+We simulate a continuous query cq1 as follows.
+```
+CREATE CONTINUOUS QUERY cq1
+RESAMPLE RANGE 2s
+BEGIN
+  SELECT AVG(C.Server.Pocessing.duration.ns)
+  INTO root.sg1.d1(duration_avg)
+  FROM root.sg1.d1
+  GROUP BY(500ms)
+END
+```
+cq1 calculates the 500ms average of the target metric, and stores the aggregation results as a new time series in the database (we output the result time series in result.csv). 
+cql is executed at 500ms intervals and each execution covers the time range between 2 seconds prior to now() and now(). 
+Notice that aggregations for most time intervals will be computed multiple times, which is four in this implementation.
 Therefore, delayed data points in the input dataset will lead to updates of the periodic aggregated results.
+
 
 ## Result
 - result.csv
