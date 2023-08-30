@@ -1,7 +1,7 @@
 # Dataset of Aggregation over Out-of-Order Data
 
 ## Target
-Online analysis algorithms incrementally update the results upon data with out-of-order arrivals will cause updates in results [Awad et al. ICPM 2020].
+Online analysis algorithms incrementally updating results over out-of-order data [Awad et al. ICPM 2020] will cause updates in results.
 To prove that,
 following the definition of continuous queries in IoTDB (https://iotdb.apache.org/UserGuide/V1.1.x/Query-Data/Continuous-Query.html#configuring-time-range-for-resampling),
 we conduct a simulated online aggregation analysis over a real-world dataset S-9 [Weiss et al. IoTBDS 2017] which contains out-of-order data arrivals. 
