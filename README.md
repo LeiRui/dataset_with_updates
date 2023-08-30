@@ -12,7 +12,7 @@ we conduct a similar online aggregation analysis over a real-world dataset S-9 [
 ## How
 - analyzeS9.m
 
-Taking d1.xlsx from S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
+Taking d1.xlsx from the dataset S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
 "C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated.
 
 We simulate the online aggregation process that calculates the 500ms average of the target metric, and store the aggregation results as a time series in xxx.csv. 
