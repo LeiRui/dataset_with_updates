@@ -15,7 +15,7 @@ we conduct a similar online aggregation analysis over a real-world dataset S-9 [
 Taking d1.xlsx from the dataset S-9 as input, we select "S.Message.received.time.ms" and "C-Send-Time" as the arrival time and generation time of the data points, respectively.
 "C.Server.Pocessing.duration.ns" is selected as the metric to be aggregated.
 
-We simulate an online aggregation process that calculates the 500ms average of the target metric, and store the aggregation results as a time series in xxx.csv. 
+We simulate an online aggregation process that calculates the 500ms average of the target metric, and store the aggregation results as a time series in result.csv. 
 The aggregation is executed at 500ms intervals and each execution covers the time range between 2 seconds prior to now() and now(). 
 Notice that with this setting, aggregations for most time intervals will be computed four times.
 Therefore, delayed data points in the input dataset will lead to updates of the periodic aggregated results.
