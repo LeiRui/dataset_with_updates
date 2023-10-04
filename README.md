@@ -34,7 +34,7 @@ The execution interval of cq1 is 500ms, which is the same length as the group by
 Notice that aggregations for most time groups will be computed multiple times.
 Therefore, delayed data points in the input dataset could lead to updates of the periodic aggregated results.
 As illustrated in the figure below, the four red lines represent that the average aggregation of the time group [t5, t6) are calculated four times.
-If any data point with generation time within [t5, t6) arrives later than t6, then the results of the four calculations will not be the same, that is to say, updates will occur.
+If any data point with generation time within [t5, t6) arrives later than t6 (and earlier than t6+500*3), then the results of the four calculations will not be the same, that is to say, updates will occur.
 
 ![cq1](cq1.png)
 
