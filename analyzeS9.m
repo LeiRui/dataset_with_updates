@@ -5,7 +5,7 @@ sheet = 1;
 data = xlsread(filename,sheet);
 arrivalTime=data(:,1);
 sendTime=data(:,12);
-durationMetric=data(:,17);
+metric=data(:,2); % S.Http.Content.Length
 %figure,plot(arrivalTime(1:100),sendTime(1:100))
 
 % make some observations
@@ -16,7 +16,7 @@ median(b); % 58ms
 
 % set continuous query parameters
 step=10*50; % 500ms
-k_factor=4;
+k_factor=10;
 lookBack=k_factor*step;% so most of the groups will be computed k_factor times. now()-2s ~ now()
 group=step;% 500ms
 
@@ -42,7 +42,7 @@ while true
             tmp1=x1+(k-1)*group;
             tmp2=x1+k*group;
             if sendTime(j)>=tmp1 && sendTime(j)<tmp2
-                sumRes(k)=sumRes(k)+durationMetric(j);
+                sumRes(k)=sumRes(k)+metric(j);
                 cntRes(k)=cntRes(k)+1;
             end
         end
@@ -59,7 +59,7 @@ scatter(res_t,res_v,'MarkerFaceColor','r','MarkerEdgeColor','r',...
     'MarkerFaceAlpha',.2,'MarkerEdgeAlpha',.2)
 xlabel('t')
 ylabel('v')
-%saveas(gcf,'scatter_plot_showing_updates.png')
+saveas(gcf,'scatter_plot_showing_updates.png')
 
 M=[res_t,res_v];
 fid = fopen('result.csv','wt');
