@@ -42,7 +42,7 @@ Note that the delay in D-1 is no more than 5 seconds. Therefore, the continuous 
 
 
 ## Result
-The output time series containing real updates is in `result.csv`.
+The output time series containing real updates is in `result.csv` (manually rename it to `CQD1.csv` after confirming all is correct).
 
 The figure below is a scatter plot of the time series in `result.csv`, which visually shows the existence of data updates. If there is no update, the values of points with the same timestamp will be the same, and thus the color density of each dot in the scatter plot will be the same. Otherwise, a more transparent dot in the scatter plot indicates that an update has occurred, which is the case in the figure below.
 
